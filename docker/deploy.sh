@@ -26,7 +26,7 @@ port(){
 
 # 启动基础环境（必须）
 base(){
-	docker-compose up -d zhao-mysql zhao-redis zhao-nacos
+	docker-compose up -d zhao-mysql zhao-redis zhao-nacos zhao-ldap
 }
 
 # 启动程序模块（必须）
