@@ -1,0 +1,4 @@
+com.zhao.system.api.factory.RemoteUserFallbackFactory
+com.zhao.system.api.factory.RemoteLogFallbackFactory
+com.zhao.system.api.factory.RemoteFileFallbackFactory
+com.zhao.system.api.factory.RemoteDeptFallbackFactory

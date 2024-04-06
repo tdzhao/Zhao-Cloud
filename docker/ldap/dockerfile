@@ -1,0 +1,4 @@
+FROM osixia/openldap:1.5.0
+
+# Copy custom LDAP configuration if needed
+COPY ./conf/custom.ldif /container/service/slapd/assets/config/bootstrap/ldif/custom/custom.ldif

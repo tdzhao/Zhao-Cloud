@@ -1,0 +1,17 @@
+ldapadd -x -H ldap://zhao-ldap:389 -D "cn=Manager,dc=maxcrc,dc=com" -w 123456 -f /container/service/slapd/assets/config/bootstrap/ldif/50-custom.ldif
+
+ldapadd -x -H ldap://zhao-ldap:389 -D "cn=admin,dc=example,dc=org" -w admin -f /container/service/slapd/assets/test/custom.ldif
+
+ldapsearch -x -LLL -H ldap://zhao-ldap:389 -b "ou=People,dc=example,dc=org" "(objectClass=*)"
+
+ldapdelete -x -H ldap://zhao-ldap:389 -D "cn=Manager,dc=maxcrc,dc=com" -w 123456 -b "uid=ldap_user_1,ou=People,dc=maxcrc,dc=com"
+
+ldapdelete -x -D "cn=Manager,dc=maxcrc,dc=com" -W "uid=ldap_user_1,ou=People,dc=maxcrc,dc=com"
+
+vim /container/service/slapd/assets/config/bootstrap/ldif/50-custom.ldif
+
+command: ["--loglevel", "debug"]
+
+ERROR c.z.s.a.f.RemoteUserFallbackFactory - [create,27] - 用户服务调用失败:Read timed out executing POST http://zhao-system/user/selectUserListNoDataScope
+09:32:37.274 [http-nio-9200-exec-1] ERROR c.z.c.s.h.GlobalExceptionHandler - [handleRuntimeException,105] - 请求地址'/loginByLdap',发生未知异常.
+com.zhao.common.core.exception.base.BaseException: null
