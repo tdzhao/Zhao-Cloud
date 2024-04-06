@@ -10,7 +10,7 @@
 
     <name>zhao</name>
     <url>http://www.zhao.vip</url>
-    <description>若依微服务系统</description>
+    <description>微服务系统</description>
 
     <properties>
         <zhao.version>3.6.3</zhao.version>
