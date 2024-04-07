@@ -2,7 +2,9 @@ ldapadd -x -H ldap://zhao-ldap:389 -D "cn=Manager,dc=maxcrc,dc=com" -w 123456 -f
 
 ldapadd -x -H ldap://zhao-ldap:389 -D "cn=admin,dc=example,dc=org" -w admin -f /container/service/slapd/assets/test/custom.ldif
 
-ldapsearch -x -LLL -H ldap://zhao-ldap:389 -b "ou=People,dc=example,dc=org" "(objectClass=*)"
+ldapsearch -x -LLL -H ldap://zhao-ldap:389 -D "cn=admin,dc=example,dc=org" -w admin -b "dc=example,dc=org" "(objectClass=*)"
+
+ldapsearch -x -H ldap://zhao-ldap:389 -b "dc=example,dc=org" "(cn=admin)"
 
 ldapdelete -x -H ldap://zhao-ldap:389 -D "cn=Manager,dc=maxcrc,dc=com" -w 123456 -b "uid=ldap_user_1,ou=People,dc=maxcrc,dc=com"
 

@@ -65,7 +65,7 @@ services:
       - ./redis/data:/data
     command: redis-server /home/zhao/redis/redis.conf
     healthcheck: # 添加健康检测
-      test: [ "CMD", "curl", "-f", "http://zhao-redis" ]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 30s
       timeout: 3s
       retries: 3
@@ -85,7 +85,7 @@ services:
       - "--copy-service"
       - "--loglevel=debug"
     healthcheck:
-      test: [ "CMD", "ldapsearch", "-x", "-H", "ldap://zhao-ldap:389", "-b", "dc=example,dc=org" ]
+      test: [ "CMD", "ldapsearch", "-x", "-H", "ldap://zhao-ldap:389", "-D", "cn=admin,dc=example,dc=org", "-w", "admin", "-b", "dc=example,dc=org" ]
       interval: 10s
       timeout: 5s
       retries: 3
