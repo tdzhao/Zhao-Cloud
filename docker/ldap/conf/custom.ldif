@@ -32,9 +32,9 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: SADMIN
-sn: SADMIN
-givenName: SADMIN
+cn: SADMIN1
+sn: SADMIN1
+givenName: SADMIN1
 telephoneNumber: 1234567890
 uid: ldap_editor_1
 userPassword: ldap_editor_1
@@ -44,9 +44,9 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: SADMIN
-sn: SADMIN
-givenName: SADMIN
+cn: SADMIN2
+sn: SADMIN2
+givenName: SADMIN2
 telephoneNumber: 1234567890
 uid: ldap_adm_1
 userPassword: ldap_adm_1
