@@ -19,8 +19,7 @@ services:
       - "9848:9848"
       - "9849:9849"
     depends_on:
-      zhao-mysql:
-        condition: service_healthy
+      - zhao-mysql
     networks:
       - my_network
     healthcheck:
@@ -52,11 +51,6 @@ services:
     environment:
       MYSQL_DATABASE: 'zhao-cloud'
       MYSQL_ROOT_PASSWORD: '123456'
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "zhao-mysql" ]
-      interval: 30s
-      timeout: 5s
-      retries: 3
   zhao-redis:
     container_name: zhao-redis
     image: redis
@@ -160,7 +154,6 @@ services:
     depends_on:
       zhao-redis:
         condition: service_healthy
-      zhao-mysql:
-        condition: service_healthy
+      zhao-mysql
       zhao-nacos:
         condition: service_healthy
