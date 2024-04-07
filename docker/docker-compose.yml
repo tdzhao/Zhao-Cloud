@@ -47,6 +47,11 @@ services:
     environment:
       MYSQL_DATABASE: 'zhao-cloud'
       MYSQL_ROOT_PASSWORD: '123456'
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
   zhao-redis:
     container_name: zhao-redis
     image: redis
