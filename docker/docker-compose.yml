@@ -85,7 +85,7 @@ services:
       - "--copy-service"
       - "--loglevel=debug"
     healthcheck:
-      test: [ "CMD", "ldapsearch", "-x", "-H", "ldap://zhao-ldap", "-b", "dc=example,dc=org" ]
+      test: [ "CMD", "ldapsearch", "-x", "-H", "ldap://zhao-ldap:389", "-b", "dc=example,dc=org" ]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -158,6 +158,7 @@ services:
     depends_on:
       zhao-redis:
         condition: service_healthy
-      zhao-mysql
+      zhao-mysql:
+        condition: service_started
       zhao-nacos:
         condition: service_healthy
