@@ -267,7 +267,7 @@ insert into sys_menu values('1057', '生成删除', '115', '3', '#', '', '', 1, 
 insert into sys_menu values('1058', '导入代码', '115', '2', '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:import',            '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1059', '预览代码', '115', '4', '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:preview',           '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1060', '生成代码', '115', '5', '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:code',              '#', 'admin', sysdate(), '', null, '');
---商品管理菜单
+-- 商品管理菜单
 INSERT INTO `sys_menu` VALUES (1061, '商品管理', 1, 10, 'product', NULL, NULL, 1, 0, 'M', '0', '0', '', '#', 'admin', '2024-04-07 16:11:27', 'admin', '2024-04-07 16:12:41', '');
 INSERT INTO `sys_menu` VALUES (1062, '商品', 1061, 0, 'product', 'system/product/index', NULL, 1, 0, 'C', '0', '0', 'system:product:list', '#', 'admin', '2024-04-07 16:13:21', 'admin', '2024-04-07 16:14:12', '');
 INSERT INTO `sys_menu` VALUES (1063, '商品添加', 1062, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:add', '#', 'admin', '2024-04-07 16:21:46', '', NULL, '');
