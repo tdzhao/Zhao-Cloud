@@ -102,9 +102,9 @@ services:
       - "7573:7573"
     depends_on:
       zhao-redis:
-        - condition: service_healthy
+        condition: service_healthy
       zhao-nacos:
-        - condition: service_healthy
+        condition: service_healthy
   zhao-auth:
     container_name: zhao-auth
     restart: always
@@ -138,8 +138,8 @@ services:
       - "9201:9201"
     depends_on:
       zhao-redis:
-      - condition: service_healthy
+        condition: service_healthy
       zhao-mysql:
-      - condition: service_healthy
+        condition: service_healthy
       zhao-nacos:
-      - condition: service_healthy
+        condition: service_healthy
