@@ -19,7 +19,8 @@ services:
       - "9848:9848"
       - "9849:9849"
     depends_on:
-      - zhao-mysql
+      zhao-mysql:
+        condition: service_healthy
     networks:
       - my_network
   zhao-mysql:
@@ -85,7 +86,8 @@ services:
       - ./nginx/logs:/var/log/nginx
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
-      - zhao-gateway
+      zhao-gateway:
+        condition: service_healthy
   zhao-gateway:
     container_name: zhao-gateway
     restart: always
@@ -99,8 +101,10 @@ services:
     ports:
       - "7573:7573"
     depends_on:
-      - zhao-redis
-      - zhao-nacos
+      zhao-redis:
+        - condition: service_healthy
+      zhao-nacos:
+        - condition: service_healthy
   zhao-auth:
     container_name: zhao-auth
     restart: always
@@ -114,9 +118,12 @@ services:
     ports:
       - "9200:9200"
     depends_on:
-      - zhao-redis
-      - zhao-nacos
-      - zhao-ldap
+      zhao-redis:
+        condition: service_healthy
+      zhao-nacos:
+        condition: service_healthy
+      zhao-ldap:
+        condition: service_healthy
   zhao-modules-system:
     container_name: zhao-modules-system
     restart: always
@@ -130,6 +137,9 @@ services:
     ports:
       - "9201:9201"
     depends_on:
-      - zhao-redis
-      - zhao-mysql
-      - zhao-nacos
+      zhao-redis:
+      - condition: service_healthy
+      zhao-mysql:
+      - condition: service_healthy
+      zhao-nacos:
+      - condition: service_healthy
