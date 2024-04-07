@@ -68,8 +68,14 @@ create table sys_user (
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1,  103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 'admin', sysdate(), '', null, '管理员','');
-insert into sys_user values(2,  105, 'ry',    '若依', '00', 'ry@qq.com',  '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 'admin', sysdate(), '', null, '测试员','');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-04-06 19:36:58', 'admin', '2024-04-06 19:36:58', '', NULL, '管理员', NULL);
+INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-04-06 19:36:58', 'admin', '2024-04-06 19:36:58', '', NULL, '测试员', NULL);
+INSERT INTO `sys_user` VALUES (3, 103, 'user_1', 'user_1', '00', '', '', '0', '', '$2a$10$y9TqQZO9jPpYaRHnQeO3Vumf0JneYLyex.zjJLgx9ifXFLYU3.K3m', '0', '0', '', NULL, 'admin', '2024-04-07 15:02:50', 'admin', '2024-04-07 16:33:37', NULL, NULL);
+INSERT INTO `sys_user` VALUES (4, 103, 'editor_1', 'editor_1', '00', '', '', '0', '', '$2a$10$YwgXtlxyATQ/z3PY2bQZFuXh4j6LzXCijgAA/6MhyGj3cldSgHKna', '0', '0', '', NULL, 'admin', '2024-04-07 16:33:58', 'admin', '2024-04-07 16:38:59', NULL, NULL);
+INSERT INTO `sys_user` VALUES (5, 103, 'adm_1', 'adm_1', '00', '', '', '0', '', '$2a$10$F5iUtiX9YCjlK2LqqBDjtenvLAnBaCGGkSf8WYhxUJLy95wsIuLL.', '0', '0', '', NULL, 'admin', '2024-04-07 16:34:13', 'admin', '2024-04-07 16:39:23', NULL, NULL);
+INSERT INTO `sys_user` VALUES (6, 103, 'ldap_user_1', 'ldap_user_1', '00', '', '', '0', '', '$2a$10$QkrgB/6.UKqiKOWLapG7Ue6cS2qlgiESCwN9TvLU3qD0I7ZNSuySy', '0', '0', '', NULL, 'ldap', '2024-04-07 03:42:52', 'admin', '2024-04-07 16:39:10', 'ldap', NULL);
+INSERT INTO `sys_user` VALUES (7, 103, 'ldap_editor_1', 'ldap_editor_1', '00', '', '', '0', '', '$2a$10$Qe1cFwCu3Me/9qnWzoG8c.jCXULU6vsYIwSb2EI/RRjeDdo4bMRiO', '0', '0', '', NULL, 'ldap', '2024-04-07 16:34:48', 'admin', '2024-04-07 16:39:13', 'ldap', NULL);
+INSERT INTO `sys_user` VALUES (8, 103, 'ldap_adm_1', 'ldap_adm_1', '00', '', '', '0', '', '$2a$10$/h.NrspS7RM.RcxFrVej4erBeNhZd38QQN6.xXgNf9UIDPxhIX3.6', '0', '0', '', NULL, 'ldap', '2024-04-07 16:35:00', 'admin', '2024-04-07 16:39:15', 'ldap', NULL);
 
 
 -- ----------------------------
@@ -127,7 +133,9 @@ create table sys_role (
 -- ----------------------------
 insert into sys_role values('1', '超级管理员',  'admin',  1, 1, 1, 1, '0', '0', 'admin', sysdate(), '', null, '超级管理员');
 insert into sys_role values('2', '普通角色',    'common', 2, 2, 1, 1, '0', '0', 'admin', sysdate(), '', null, '普通角色');
-
+INSERT INTO `sys_role` VALUES (3, 'USER', 'USER', 3, '1', 0, 1, '0', '0', 'admin', '2024-04-07 16:09:04', 'admin', '2024-04-07 16:33:19', NULL);
+INSERT INTO `sys_role` VALUES (4, 'EDITOR', 'EDITOR', 4, '1', 1, 1, '0', '0', 'admin', '2024-04-07 16:31:48', 'admin', '2024-04-07 16:38:49', NULL);
+INSERT INTO `sys_role` VALUES (5, 'PRODUCT_ADMIN', 'PRODUCT_ADMIN', 5, '1', 1, 1, '0', '0', 'admin', '2024-04-07 16:32:22', 'admin', '2024-04-07 16:33:28', NULL);
 
 -- ----------------------------
 -- 5、菜单权限表
@@ -259,7 +267,13 @@ insert into sys_menu values('1057', '生成删除', '115', '3', '#', '', '', 1, 
 insert into sys_menu values('1058', '导入代码', '115', '2', '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:import',            '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1059', '预览代码', '115', '4', '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:preview',           '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1060', '生成代码', '115', '5', '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:code',              '#', 'admin', sysdate(), '', null, '');
-
+--商品管理菜单
+INSERT INTO `sys_menu` VALUES (1061, '商品管理', 1, 10, 'product', NULL, NULL, 1, 0, 'M', '0', '0', '', '#', 'admin', '2024-04-07 16:11:27', 'admin', '2024-04-07 16:12:41', '');
+INSERT INTO `sys_menu` VALUES (1062, '商品', 1061, 0, 'product', 'system/product/index', NULL, 1, 0, 'C', '0', '0', 'system:product:list', '#', 'admin', '2024-04-07 16:13:21', 'admin', '2024-04-07 16:14:12', '');
+INSERT INTO `sys_menu` VALUES (1063, '商品添加', 1062, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:add', '#', 'admin', '2024-04-07 16:21:46', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1064, '商品删除', 1062, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:remove', '#', 'admin', '2024-04-07 16:22:23', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1065, '商品修改', 1062, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:edit', '#', 'admin', '2024-04-07 16:22:51', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1066, '商品导出', 1062, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:export', '#', 'admin', '2024-04-07 16:27:40', 'admin', '2024-04-07 16:28:08', '');
 
 -- ----------------------------
 -- 6、用户和角色关联表  用户N-1角色
@@ -276,7 +290,12 @@ create table sys_user_role (
 -- ----------------------------
 insert into sys_user_role values ('1', '1');
 insert into sys_user_role values ('2', '2');
-
+INSERT INTO `sys_user_role` VALUES (3, 3);
+INSERT INTO `sys_user_role` VALUES (4, 4);
+INSERT INTO `sys_user_role` VALUES (5, 5);
+INSERT INTO `sys_user_role` VALUES (6, 3);
+INSERT INTO `sys_user_role` VALUES (7, 4);
+INSERT INTO `sys_user_role` VALUES (8, 5);
 
 -- ----------------------------
 -- 7、角色和菜单关联表  角色1-N菜单
@@ -375,7 +394,21 @@ insert into sys_role_menu values ('2', '1057');
 insert into sys_role_menu values ('2', '1058');
 insert into sys_role_menu values ('2', '1059');
 insert into sys_role_menu values ('2', '1060');
-
+INSERT INTO `sys_role_menu` VALUES (3, 1);
+INSERT INTO `sys_role_menu` VALUES (3, 1061);
+INSERT INTO `sys_role_menu` VALUES (3, 1062);
+INSERT INTO `sys_role_menu` VALUES (4, 1);
+INSERT INTO `sys_role_menu` VALUES (4, 1061);
+INSERT INTO `sys_role_menu` VALUES (4, 1062);
+INSERT INTO `sys_role_menu` VALUES (4, 1063);
+INSERT INTO `sys_role_menu` VALUES (4, 1064);
+INSERT INTO `sys_role_menu` VALUES (4, 1065);
+INSERT INTO `sys_role_menu` VALUES (5, 1);
+INSERT INTO `sys_role_menu` VALUES (5, 1061);
+INSERT INTO `sys_role_menu` VALUES (5, 1062);
+INSERT INTO `sys_role_menu` VALUES (5, 1063);
+INSERT INTO `sys_role_menu` VALUES (5, 1064);
+INSERT INTO `sys_role_menu` VALUES (5, 1065);
 -- ----------------------------
 -- 8、角色和部门关联表  角色1-N部门
 -- ----------------------------
@@ -410,7 +443,7 @@ create table sys_user_post
 -- ----------------------------
 insert into sys_user_post values ('1', '1');
 insert into sys_user_post values ('2', '2');
-
+INSERT INTO `sys_user_post` VALUES (3, 4);
 
 -- ----------------------------
 -- 10、操作日志记录

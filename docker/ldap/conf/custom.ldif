@@ -14,3 +14,39 @@ givenName: SADMIN
 telephoneNumber: 1234567890
 uid: ldap_user_1
 userPassword: ldap_user_1
+
+dn: uid=ldap_user_1,ou=People,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: SADMIN
+sn: SADMIN
+givenName: SADMIN
+telephoneNumber: 1234567890
+uid: ldap_user_1
+userPassword: ldap_user_1
+
+dn: uid=ldap_editor_1,ou=People,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: SADMIN
+sn: SADMIN
+givenName: SADMIN
+telephoneNumber: 1234567890
+uid: ldap_editor_1
+userPassword: ldap_editor_1
+
+dn: uid=ldap_adm_1,ou=People,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: SADMIN
+sn: SADMIN
+givenName: SADMIN
+telephoneNumber: 1234567890
+uid: ldap_adm_1
+userPassword: ldap_adm_1
