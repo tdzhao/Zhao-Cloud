@@ -72,6 +72,7 @@ services:
       start_period: 40s
   zhao-ldap:
     container_name: zhao-ldap
+    restart: always
     networks:
       - my_network
     build:
@@ -80,6 +81,9 @@ services:
     ports:
       - "389:389"
       - "636:636"
+    command:
+      - "--copy-service"
+      - "--loglevel=debug"
     healthcheck:
       test: [ "CMD", "ldapsearch", "-x", "-H", "ldap://zhao-ldap", "-b", "dc=example,dc=org" ]
       interval: 10s
