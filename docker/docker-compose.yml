@@ -5,6 +5,7 @@ networks:
 services:
   zhao-nacos:
     container_name: zhao-nacos
+    restart: always
     image: nacos/nacos-server
     build:
       context: ./nacos
@@ -70,6 +71,7 @@ services:
       - "636:636"
   zhao-nginx:
     container_name: zhao-nginx
+    restart: always
     image: nginx
     networks:
       - my_network
@@ -86,6 +88,7 @@ services:
       - zhao-gateway
   zhao-gateway:
     container_name: zhao-gateway
+    restart: always
     networks:
       - my_network
     environment:
@@ -100,6 +103,7 @@ services:
       - zhao-nacos
   zhao-auth:
     container_name: zhao-auth
+    restart: always
     networks:
       - my_network
     environment:
@@ -115,6 +119,7 @@ services:
       - zhao-ldap
   zhao-modules-system:
     container_name: zhao-modules-system
+    restart: always
     networks:
       - my_network
     environment:
