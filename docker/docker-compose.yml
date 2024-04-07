@@ -48,7 +48,7 @@ services:
       MYSQL_DATABASE: 'zhao-cloud'
       MYSQL_ROOT_PASSWORD: '123456'
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "zhao-mysql" ]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -65,6 +65,12 @@ services:
       - ./redis/conf/redis.conf:/home/zhao/redis/redis.conf
       - ./redis/data:/data
     command: redis-server /home/zhao/redis/redis.conf
+    healthcheck: # 添加健康检测
+      test: [ "CMD", "curl", "-f", "http://zhao-redis" ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
   zhao-ldap:
     container_name: zhao-ldap
     networks:
