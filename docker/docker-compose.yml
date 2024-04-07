@@ -97,6 +97,7 @@ services:
       - "7573:7573"
     depends_on:
       - zhao-redis
+      - zhao-nacos
   zhao-auth:
     container_name: zhao-auth
     networks:
@@ -110,6 +111,8 @@ services:
       - "9200:9200"
     depends_on:
       - zhao-redis
+      - zhao-nacos
+      - zhao-ldap
   zhao-modules-system:
     container_name: zhao-modules-system
     networks:
@@ -124,6 +127,7 @@ services:
     depends_on:
       - zhao-redis
       - zhao-mysql
+      - zhao-nacos
   zhao-modules-gen:
     container_name: zhao-modules-gen
     networks:
@@ -137,6 +141,7 @@ services:
       - "9202:9202"
     depends_on:
       - zhao-mysql
+      - zhao-nacos
   zhao-modules-job:
     container_name: zhao-modules-job
     networks:
@@ -150,6 +155,7 @@ services:
       - "9203:9203"
     depends_on:
       - zhao-mysql
+      - zhao-nacos
   zhao-modules-file:
     container_name: zhao-modules-file
     networks:
