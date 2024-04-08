@@ -24,9 +24,10 @@ services:
       - my_network
     healthcheck:
       test: ["CMD", "curl", "-fL", "http://zhao-nacos:8848/nacos"]
-      interval: 10s
-      timeout: 5s
+      interval: 30s
+      timeout: 10s
       retries: 3
+      start_period: 60s
   zhao-mysql:
     container_name: zhao-mysql
     image: mysql:5.7
