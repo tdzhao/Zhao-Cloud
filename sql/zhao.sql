@@ -271,9 +271,10 @@ insert into sys_menu values('1060', '生成代码', '115', '5', '#', '', '', 1, 
 INSERT INTO `sys_menu` VALUES (1061, '商品管理', 1, 10, 'product', NULL, NULL, 1, 0, 'M', '0', '0', '', '#', 'admin', '2024-04-07 16:11:27', 'admin', '2024-04-07 16:12:41', '');
 INSERT INTO `sys_menu` VALUES (1062, '商品', 1061, 0, 'product', 'system/product/index', NULL, 1, 0, 'C', '0', '0', 'system:product:list', '#', 'admin', '2024-04-07 16:13:21', 'admin', '2024-04-07 16:14:12', '');
 INSERT INTO `sys_menu` VALUES (1063, '商品添加', 1062, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:add', '#', 'admin', '2024-04-07 16:21:46', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1064, '商品删除', 1062, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:remove', '#', 'admin', '2024-04-07 16:22:23', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1064, '商品详情', 1062, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:query', '#', 'admin', '2024-04-07 16:21:46', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1065, '商品修改', 1062, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:edit', '#', 'admin', '2024-04-07 16:22:51', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1066, '商品导出', 1062, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:export', '#', 'admin', '2024-04-07 16:27:40', 'admin', '2024-04-07 16:28:08', '');
+INSERT INTO `sys_menu` VALUES (1066, '商品删除', 1062, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:remove', '#', 'admin', '2024-04-07 16:22:23', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1067, '商品导出', 1062, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'system:product:export', '#', 'admin', '2024-04-07 16:27:40', 'admin', '2024-04-07 16:28:08', '');
 
 -- ----------------------------
 -- 6、用户和角色关联表  用户N-1角色
@@ -403,12 +404,14 @@ INSERT INTO `sys_role_menu` VALUES (4, 1062);
 INSERT INTO `sys_role_menu` VALUES (4, 1063);
 INSERT INTO `sys_role_menu` VALUES (4, 1064);
 INSERT INTO `sys_role_menu` VALUES (4, 1065);
+INSERT INTO `sys_role_menu` VALUES (4, 1066);
 INSERT INTO `sys_role_menu` VALUES (5, 1);
 INSERT INTO `sys_role_menu` VALUES (5, 1061);
 INSERT INTO `sys_role_menu` VALUES (5, 1062);
 INSERT INTO `sys_role_menu` VALUES (5, 1063);
 INSERT INTO `sys_role_menu` VALUES (5, 1064);
 INSERT INTO `sys_role_menu` VALUES (5, 1065);
+INSERT INTO `sys_role_menu` VALUES (5, 1066);
 -- ----------------------------
 -- 8、角色和部门关联表  角色1-N部门
 -- ----------------------------
