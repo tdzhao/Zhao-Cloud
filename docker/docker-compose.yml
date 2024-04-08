@@ -105,8 +105,7 @@ services:
       - ./nginx/logs:/var/log/nginx
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
-      zhao-gateway:
-        condition: service_healthy
+      - zhao-gateway
   zhao-gateway:
     container_name: zhao-gateway
     restart: always
